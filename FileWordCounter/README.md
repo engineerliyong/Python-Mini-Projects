@@ -407,11 +407,6 @@ python word_counter.py > output.txt
 4. **Format output** - Professional presentation improves usability
 5. **Test edge cases** - Empty files, missing files, etc.
 
-## Links
-
-- **Code**: [`word_counter.py`](./word_counter.py)
-- **Sample File**: [`sample.txt`](./sample.txt)
-- **Sample Report**: [`report.txt`](./report.txt)
 
 ## Resources Used
 
@@ -428,11 +423,6 @@ python word_counter.py > output.txt
 **Status:** ✅ Complete  
 **Next:** Project 03 - CSV Data Analyzer
 
----
-
-## Contributing
-
-Found a bug or have a suggestion? Open an issue in the [main repository](https://github.com/engineerliyong/python-mini-projects/issues) and tag it with `project-02`.
 
 ---
 
