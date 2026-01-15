@@ -1,0 +1,15 @@
+name,age,salary,department,years_experience
+Alice,28,65000,Engineering,5
+Bob,35,75000,Marketing,8
+Charlie,42,95000,Engineering,15
+Diana,29,68000,Sales,6
+Eve,31,72000,Marketing,7
+Frank,38,,Engineering,12
+Grace,26,62000,Sales,3
+Henry,45,98000,Engineering,18
+Iris,,71000,Marketing,9
+Jack,33,69000,Sales,5
+Liyong,30,100000,Engineering,5
+Kevin,35,62000,IT,7
+Mona,29,72000,IT,4
+Nina,41,88000,IT,14
