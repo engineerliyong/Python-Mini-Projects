@@ -6,15 +6,14 @@ An interactive command-line calculator that performs basic arithmetic operations
 
 ## Features
 
-- ✅ **Basic Arithmetic** - Addition, subtraction, multiplication, division, power
+- ✅ **Basic Operations** - Addition, Subtraction, Multiplication, Division, Power
 - ✅ **Calculation History** - Tracks all calculations with timestamps
-- ✅ **View History** - Display all previous calculations
-- ✅ **Clear History** - Remove all calculations with confirmation
-- ✅ **Save to File** - Export history to text file
-- ✅ **Load from File** - View saved history reports
-- ✅ **Error Handling** - Prevents division by zero, validates input
-- ✅ **Menu-Driven Interface** - Easy navigation with numbered options
-- ✅ **Auto-Save Prompt** - Asks to save before exiting
+- ✅ **View History** - Display all past calculations
+- ✅ **Clear History** - Remove all saved calculations (with confirmation)
+- ✅ **Save to File** - Export calculation history to text file
+- ✅ **Error Handling** - Division by zero protection and input validation
+- ✅ **Menu-Driven Interface** - Easy-to-use interactive menu
+- ✅ **Auto-Save on Exit** - Option to save history before closing
 
 ## Installation
 
@@ -41,8 +40,12 @@ python calculator.py
 python calculator.py
 ```
 
-### Main Menu
+### Example Session
 ```
+======================================================================
+  WELCOME TO CALCULATOR WITH HISTORY
+======================================================================
+
 ======================================================================
   CALCULATOR WITH HISTORY
 ======================================================================
@@ -50,120 +53,102 @@ python calculator.py
 2. View history
 3. Clear history
 4. Save history to file
-5. Load history from file
-6. Exit
+5. Exit
 ======================================================================
 
-Enter choice (1-6):
-```
-
-### Example Session
-
-#### **Performing Calculations**
-```
-Enter choice (1-6): 1
+Enter choice (1-5): 1
 
 ----------------------------------------------------------------------
   NEW CALCULATION
 ----------------------------------------------------------------------
-Enter first number: 25
-Operations: + (add), - (subtract), * (multiply), / (divide), ** (power)
-Enter operation: *
-Enter second number: 4
+Enter first number: 15
+Operation: + (Add), - (Subtract), * (Multiply), / (Divide), ** (Power)
+Enter operation: +
+Enter second number: 7
 
 ----------------------------------------------------------------------
-  25.0 * 4.0 = 100.0
+  Result: 15.0 + 7.0 = 22.0
 ----------------------------------------------------------------------
-```
 
-#### **Viewing History**
-```
-Enter choice (1-6): 2
+Enter choice (1-5): 2
 
 ======================================================================
   CALCULATION HISTORY
 ======================================================================
-  1. [2026-01-09 14:30:15] 25.0 * 4.0 = 100.0
-  2. [2026-01-09 14:31:22] 50.0 + 30.0 = 80.0
-  3. [2026-01-09 14:32:45] 100.0 / 5.0 = 20.0
+1. [2026-01-09 15:30:45] 15.0 + 7.0 = 22.0
 ======================================================================
-Total calculations: 3
+Total calculations: 1
 ```
 
-#### **Saving History**
-```
-Enter choice (1-6): 4
+### Menu Options
 
-Enter filename [history.txt]: my_calculations.txt
+**1. Perform Calculation**
+- Enter first number
+- Choose operation (+, -, *, /, **)
+- Enter second number
+- View result and automatic history save
 
-✓ History saved to: my_calculations.txt
-```
+**2. View History**
+- Displays all calculations with timestamps
+- Shows total number of calculations
 
-#### **Division by Zero Handling**
-```
-Enter first number: 10
-Enter operation: /
-Enter second number: 0
+**3. Clear History**
+- Asks for confirmation before clearing
+- Removes all saved calculations
 
-----------------------------------------------------------------------
-  10.0 / 0.0 = Error: Division by zero
-----------------------------------------------------------------------
-```
+**4. Save History to File**
+- Saves complete history to text file
+- Default filename: `history.txt`
+- Custom filename supported
+
+**5. Exit**
+- Option to save history before closing
+- Clean exit with goodbye message
 
 ## Code Structure
 
 ### Functions Overview
 
-**Arithmetic Operations:**
-- `add(a, b)` - Addition
-- `subtract(a, b)` - Subtraction
-- `multiply(a, b)` - Multiplication
-- `divide(a, b)` - Division (with zero-check)
-- `power(a, b)` - Exponentiation
+**Basic Operations:**
+```python
+add(a, b)         # Returns a + b
+subtract(a, b)    # Returns a - b
+multiply(a, b)    # Returns a * b
+divide(a, b)      # Returns a / b (handles division by zero)
+power(a, b)       # Returns a ** b
+```
+
+**Input Handling:**
+```python
+get_number(prompt)      # Gets valid number from user with error handling
+get_operation()         # Gets valid operation symbol (+, -, *, /, **)
+perform_operation(a, op, b)  # Executes the appropriate operation
+```
 
 **History Management:**
-- `add_to_history(expression, result)` - Stores calculation with timestamp
-- `view_history()` - Displays all calculations
-- `clear_history()` - Removes all history (with confirmation)
-- `save_history(filename)` - Exports to text file
-- `load_history(filename)` - Reads saved history
+```python
+add_to_history(expression, result)  # Adds calculation with timestamp
+view_history()                       # Displays all calculations
+clear_history()                      # Clears all history (with confirmation)
+save_history(filename)               # Saves history to text file
+```
 
-**User Interface:**
-- `display_menu()` - Shows main menu
-- `perform_calculation()` - Handles calculation workflow
-- `get_number(prompt)` - Input validation for numbers
-- `get_operation()` - Input validation for operations
-- `main()` - Main program loop
+**Program Flow:**
+```python
+display_menu()           # Shows menu options
+perform_calculation()    # Handles one calculation cycle
+main()                   # Main loop with menu system
+```
 
 ### Data Structure
 
 **History Storage:**
 ```python
 calculation_history = [
-    {
-        'timestamp': '2026-01-09 14:30:15',
-        'expression': '25.0 * 4.0',
-        'result': 100.0
-    },
-    # ... more entries
+    "[2026-01-09 15:30:45] 15.0 + 7.0 = 22.0",
+    "[2026-01-09 15:31:02] 20.0 * 3.0 = 60.0",
+    "[2026-01-09 15:31:18] 100.0 / 4.0 = 25.0"
 ]
-```
-
-### Program Flow
-```
-1. Display menu
-   ↓
-2. Get user choice
-   ↓
-3. Execute chosen action:
-   - Perform calculation
-   - View history
-   - Clear history
-   - Save to file
-   - Load from file
-   - Exit
-   ↓
-4. Loop back to menu (unless exit chosen)
 ```
 
 ## What I Learned
@@ -172,425 +157,327 @@ calculation_history = [
 
 #### 1. **Lists for Data Storage**
 ```python
-calculation_history = []  # Initialize empty list
-calculation_history.append(entry)  # Add item
-len(calculation_history)  # Count items
-
-# Check if empty
-if not calculation_history:
-    print("No history!")
+calculation_history = []           # Initialize empty list
+calculation_history.append(item)   # Add item to list
+len(calculation_history)           # Get list length
+for entry in calculation_history:  # Loop through list
 ```
-- Lists are mutable and ordered
-- Perfect for storing sequential data
-- Can hold any data type (strings, dicts, numbers)
+- Lists are mutable and perfect for storing sequences
+- Can easily add, remove, and iterate over items
+- Length checking with `len()` for conditional logic
 
-#### 2. **While Loops for Menus**
+#### 2. **While Loops for Continuous Execution**
 ```python
 while True:
-    display_menu()
+    # Menu loop - runs until break
     choice = input("Enter choice: ")
-    
-    if choice == '6':
+    if choice == '5':
         break  # Exit loop
-    
-    # Process choice
 ```
-- `while True` creates infinite loop
-- `break` exits the loop
-- Great for menu systems
+- `while True` creates infinite loop for menus
+- `break` statement exits the loop
+- Perfect for interactive programs
 
-#### 3. **Global Variables**
+#### 3. **Input Validation with Try-Except**
+```python
+while True:
+    try:
+        value = float(input("Enter number: "))
+        return value  # Valid input, exit loop
+    except ValueError:
+        print("Invalid input. Try again.")
+        # Loop continues
+```
+- `try-except` handles errors gracefully
+- `ValueError` catches non-numeric input
+- Loop continues until valid input received
+
+#### 4. **DateTime Module**
+```python
+import datetime
+timestamp = datetime.datetime.now()
+formatted = timestamp.strftime("%Y-%m-%d %H:%M:%S")
+# Output: "2026-01-09 15:30:45"
+```
+- `datetime.now()` gets current date and time
+- `strftime()` formats datetime as string
+- Custom format strings for different displays
+
+#### 5. **Global Variables**
 ```python
 calculation_history = []  # Global variable
 
 def clear_history():
-    global calculation_history  # Declare we're modifying global
-    calculation_history = []  # Reset to empty list
+    global calculation_history  # Modify global variable
+    calculation_history = []
 ```
-- Used when multiple functions need access to same data
-- Must use `global` keyword to modify
-- Alternative: use classes or pass as parameters
+- `global` keyword allows function to modify global variables
+- Useful for shared state across functions
+- Must declare before assignment
 
-#### 4. **Datetime Module**
+#### 6. **String Formatting**
 ```python
-import datetime
+# F-strings for readable formatting
+expression = f"{num1} {operation} {num2}"
+entry = f"[{timestamp}] {expression} = {result}"
 
-now = datetime.datetime.now()
-# datetime.datetime(2026, 1, 9, 14, 30, 15)
-
-formatted = now.strftime("%Y-%m-%d %H:%M:%S")
-# "2026-01-09 14:30:15"
+# Output: "[2026-01-09 15:30:45] 15.0 + 7.0 = 22.0"
 ```
-- `strftime()` formats dates as strings
-- `%Y` = 4-digit year, `%m` = month, `%d` = day
-- `%H` = hour (24h), `%M` = minute, `%S` = second
+- F-strings provide clean variable interpolation
+- Can include expressions inside `{}`
+- More readable than concatenation or `.format()`
 
-#### 5. **Input Validation with Try-Except**
+#### 7. **File Writing**
 ```python
-def get_number(prompt):
-    while True:
-        try:
-            return float(input(prompt))
-        except ValueError:
-            print("Invalid input. Try again.")
+with open(filename, 'w') as f:
+    f.write("Text to write\n")
+    f.write(f"Variable: {value}\n")
+# File automatically closes
 ```
-- Keeps asking until valid input received
-- `try-except` catches errors gracefully
-- Better UX than crashing
-
-#### 6. **String Methods**
-```python
-operation = input("Enter operation: ").strip()
-# Removes leading/trailing whitespace
-
-answer = input("Save? (y/n): ").strip().lower()
-# Chains methods: strip THEN lowercase
-```
-- `.strip()` removes whitespace
-- `.lower()` converts to lowercase
-- Can chain methods together
-
-#### 7. **Dictionaries for Structured Data**
-```python
-entry = {
-    'timestamp': '2026-01-09 14:30:15',
-    'expression': '25.0 * 4.0',
-    'result': 100.0
-}
-
-# Access values
-print(entry['timestamp'])
-print(entry['result'])
-```
-- Key-value pairs
-- Self-documenting (keys describe data)
-- Easy to extend (add new keys)
-
-#### 8. **File I/O**
-```python
-# Writing
-with open('history.txt', 'w', encoding='utf-8') as f:
-    f.write("Data here\n")
-
-# Reading
-with open('history.txt', 'r', encoding='utf-8') as f:
-    content = f.read()
-```
-- `with` statement auto-closes file
-- `'w'` = write mode (overwrites)
-- `'r'` = read mode
-- Always use `encoding='utf-8'`
+- `with` statement ensures file closes properly
+- `'w'` mode overwrites file (use `'a'` to append)
+- `\n` for newlines
 
 ### Key Takeaways
 
-✅ **Lists are perfect for collections** - Much better than 100+ variables  
-✅ **Input validation prevents crashes** - Always validate user input  
-✅ **Dictionaries organize related data** - Better than separate variables  
-✅ **While loops power menus** - Combined with `break` for exit  
-✅ **Global variables need care** - Must declare with `global` keyword  
-✅ **String methods are powerful** - `.strip()` and `.lower()` improve UX  
-✅ **Timestamps add professionalism** - Users appreciate detailed records
+✅ **Input validation is essential** - Never trust user input  
+✅ **Lists are powerful** - Easy to store and manipulate sequences  
+✅ **While loops for menus** - Clean way to create interactive programs  
+✅ **Global variables have their place** - Shared state across functions  
+✅ **Error messages should guide users** - Tell them what went wrong and how to fix it  
+✅ **Timestamps add context** - Makes history more useful
 
 ## Challenges & Solutions
 
-### Challenge 1: Managing History Data
-**Problem**: How to store multiple calculations with different data types (timestamp, expression, result)?
+### Challenge 1: Division by Zero
+**Problem**: Program crashes when dividing by zero
 
-**First attempt**: Separate lists
-```python
-timestamps = []
-expressions = []
-results = []
-# Hard to keep synchronized!
-```
-
-**Solution**: List of dictionaries
-```python
-calculation_history = [
-    {'timestamp': '...', 'expression': '...', 'result': ...}
-]
-# All related data stays together ✓
-```
-
-**Lesson**: Dictionaries are perfect for structured records.
-
----
-
-### Challenge 2: Division by Zero
-**Problem**: Calculator crashes when dividing by zero
-
-**Solution**: Check before dividing
+**Solution**: 
 ```python
 def divide(a, b):
     if b == 0:
         return "Error: Division by zero"
     return a / b
 ```
+Added check before division and return error message instead of crashing.
 
-**Lesson**: Always validate mathematical operations.
+### Challenge 2: Invalid Input Handling
+**Problem**: Non-numeric input causes `ValueError`
 
----
-
-### Challenge 3: Invalid User Input
-**Problem**: Program crashes when user enters text instead of number
-
-**First attempt**: Basic check
-```python
-num = input("Enter number: ")
-if not num.isdigit():  # ❌ Fails for decimals and negatives
-    print("Error")
-```
-
-**Solution**: Try-except loop
+**Solution**:
 ```python
 def get_number(prompt):
     while True:
         try:
-            return float(input(prompt))
+            value = float(input(prompt))
+            return value
         except ValueError:
-            print("Invalid input. Try again.")
+            print("Invalid input. Please enter a numeric value.")
 ```
+Used try-except to catch errors and loop until valid input received.
 
-**Lesson**: Try-except is better for type conversion validation.
+### Challenge 3: Modifying Global List
+**Problem**: Clearing history inside function didn't work
 
----
-
-### Challenge 4: Clearing Global List
-**Problem**: `clear_history()` creates local variable instead of modifying global
-
-**Broken code**:
+**Solution**:
 ```python
 def clear_history():
-    calculation_history = []  # Creates LOCAL variable!
-    # Global list unchanged ❌
+    global calculation_history  # Must declare global
+    calculation_history = []
 ```
+Needed `global` keyword to reassign the global variable.
 
-**Solution**: Use `global` keyword
+### Challenge 4: Saving History Format
+**Problem**: History file was hard to read
+
+**Solution**:
 ```python
-def clear_history():
-    global calculation_history
-    calculation_history = []  # Modifies GLOBAL ✓
+f.write("=" * 60 + "\n")  # Header separator
+f.write(f"{i}. {entry}\n")  # Numbered entries
+f.write(f"Total calculations: {len(calculation_history)}\n")
 ```
+Added formatting with separators, numbering, and summary.
 
-**Lesson**: Must declare `global` when reassigning global variables.
+### Challenge 5: Preventing Accidental Data Loss
+**Problem**: Users might exit without saving
 
----
-
-### Challenge 5: Accidental Whitespace in Input
-**Problem**: User types " + " (with spaces) and operation doesn't match
-
-**Solution**: Use `.strip()`
+**Solution**:
 ```python
-operation = input("Enter operation: ").strip()
-# "  +  " becomes "+"
+if calculation_history:
+    save_before_exit = input("Save history before exiting? (y/n): ")
+    if save_before_exit == 'y':
+        save_history()
 ```
+Added prompt before exit to save unsaved work.
 
-**Lesson**: Always `.strip()` user input for single-value entries.
+## Sample Output Files
 
----
-
-### Challenge 6: Formatting Timestamps
-**Problem**: Default datetime format is ugly
-```python
-datetime.datetime.now()
-# 2026-01-09 14:30:15.123456
+### history.txt Format
 ```
+============================================================
+  CALCULATOR HISTORY
+============================================================
 
-**Solution**: Custom format with strftime
-```python
-now.strftime("%Y-%m-%d %H:%M:%S")
-# "2026-01-09 14:30:15"
-```
+1. [2026-01-09 15:30:45] 15.0 + 7.0 = 22.0
+2. [2026-01-09 15:31:02] 20.0 * 3.0 = 60.0
+3. [2026-01-09 15:31:18] 100.0 / 4.0 = 25.0
+4. [2026-01-09 15:31:35] 2.0 ** 8.0 = 256.0
+5. [2026-01-09 15:31:50] 50.0 - 12.0 = 38.0
 
-**Lesson**: `strftime()` gives full control over date formatting.
-
-## Sample Output
-
-### Saved History File (history.txt)
-```
-======================================================================
-  CALCULATOR HISTORY REPORT
-======================================================================
-
-1. [2026-01-09 14:30:15] 25.0 * 4.0 = 100.0
-2. [2026-01-09 14:31:22] 50.0 + 30.0 = 80.0
-3. [2026-01-09 14:32:45] 100.0 / 5.0 = 20.0
-4. [2026-01-09 14:33:12] 2.0 ** 8.0 = 256.0
-5. [2026-01-09 14:34:01] 100.0 - 37.0 = 63.0
-
-======================================================================
+============================================================
 Total calculations: 5
-======================================================================
 ```
 
 ## Testing
 
-### Test Cases Performed
+### Test Cases
 ```
-✅ Test 1: Addition (5 + 3 = 8)
-✅ Test 2: Subtraction (10 - 4 = 6)
-✅ Test 3: Multiplication (7 * 8 = 56)
-✅ Test 4: Division (100 / 4 = 25.0)
-✅ Test 5: Power (2 ** 10 = 1024)
-✅ Test 6: Division by zero (handled with error message)
-✅ Test 7: Invalid number input ("abc" → re-prompt)
-✅ Test 8: Invalid operation ("x" → re-prompt)
-✅ Test 9: View empty history (shows "No history" message)
-✅ Test 10: Clear history (asks confirmation)
-✅ Test 11: Save history to file (creates file)
-✅ Test 12: Load history from file (displays content)
-✅ Test 13: Custom filename (works correctly)
-✅ Test 14: Exit with unsaved history (prompts to save)
-✅ Test 15: Multiple calculations in one session
+✅ Test 1: Addition (5 + 3 = 8) - Passed
+✅ Test 2: Subtraction (10 - 4 = 6) - Passed
+✅ Test 3: Multiplication (3 * 7 = 21) - Passed
+✅ Test 4: Division (15 / 3 = 5.0) - Passed
+✅ Test 5: Power (2 ** 3 = 8) - Passed
+✅ Test 6: Division by zero - Error handled correctly
+✅ Test 7: Invalid number input - Error handled, asks again
+✅ Test 8: Invalid operation - Error handled, asks again
+✅ Test 9: View empty history - Shows "No history yet"
+✅ Test 10: Clear history with confirmation - Works correctly
+✅ Test 11: Save history to file - File created successfully
+✅ Test 12: Exit without saving - Prompts to save
 ```
 
 ### Edge Cases Handled
-- Empty history (all operations check first)
 - Division by zero (returns error message)
-- Invalid numeric input (keeps asking)
-- Invalid operation (keeps asking)
-- Missing file when loading (shows error)
-- Whitespace in input (stripped)
-- Decimal numbers (accepted)
-- Negative numbers (accepted)
-- Very large numbers (handled)
+- Non-numeric input (loops until valid)
+- Invalid operation symbols (asks again)
+- Empty history (appropriate messages)
+- File save errors (try-except handling)
+- Accidental spaces in input (`.strip()`)
 
 ## Future Improvements
 
-### Version 2.0
-- [ ] Add square root operation
-- [ ] Add modulo (%) operation
-- [ ] Add factorial operation
-- [ ] Support negative numbers better
-
-### Version 3.0
-- [ ] Accept full expressions: "5 + 3 * 2"
-- [ ] Parentheses support: "(5 + 3) * 2"
-- [ ] Variables: store results as x, y, z
-- [ ] Last answer reference: "ANS + 5"
-
-### Version 4.0
-- [ ] Export to CSV format
-- [ ] Statistics: most-used operation, average result
-- [ ] Search history by date or operation
-- [ ] Undo last calculation
+### Version 2.0 (Planned)
+- [ ] More operations (square root, modulo, factorial)
 - [ ] Memory functions (M+, M-, MR, MC)
+- [ ] Expression parsing (calculate "5 + 3 * 2" directly)
+- [ ] Undo last calculation
+- [ ] Edit/delete specific history entries
 
-### Version 5.0
-- [ ] GUI with tkinter
-- [ ] Graphing capabilities
-- [ ] Scientific functions (sin, cos, tan, log)
-- [ ] Unit conversions
-- [ ] Currency conversions (with API)
+### Version 3.0 (Advanced)
+- [ ] Scientific calculator mode (sin, cos, tan, log)
+- [ ] Unit conversions (temperature, length, weight)
+- [ ] Currency conversion with live rates
+- [ ] Graphing calculator features
+- [ ] Export to CSV/Excel
+
+### Version 4.0 (GUI)
+- [ ] Tkinter GUI interface
+- [ ] Button-based calculator
+- [ ] Visual history panel
+- [ ] Themes (light/dark mode)
 
 ## Project Statistics
 
 | Metric | Value |
 |--------|-------|
-| **Lines of Code** | ~280 |
+| **Lines of Code** | ~180 |
 | **Functions** | 12 |
 | **Time to Complete** | ~3 hours |
 | **Difficulty** | ⭐⭐ Intermediate |
 | **Date Completed** | January 2026 |
 
 ### Time Breakdown
-- Planning & design: 20 minutes
+- Understanding requirements: 15 minutes
 - Basic operations: 30 minutes
+- Input validation: 30 minutes
 - History management: 45 minutes
-- Menu system: 40 minutes
-- File I/O: 25 minutes
-- Testing & debugging: 40 minutes
-- Documentation: 20 minutes
+- Menu system: 30 minutes
+- File operations: 20 minutes
+- Testing and debugging: 30 minutes
+- Documentation: 30 minutes
 
 ## Comparison with Previous Projects
 
-| Aspect | Project 02 | Project 03 | Project 04 |
-|--------|------------|------------|------------|
-| **Data Structure** | Counter | DataFrame | List of Dicts |
-| **User Input** | File path | File path | Multiple inputs |
-| **Loop Type** | None | None | While loop |
-| **Global State** | No | No | Yes (history) |
-| **External Libs** | collections | pandas | None (stdlib) |
-| **Complexity** | Medium | Medium-High | Medium |
+| Aspect | Project 01 | Project 02 | Project 03 | Project 04 |
+|--------|------------|------------|------------|------------|
+| **Data Structure** | Variables | Dict/Counter | DataFrame | Lists |
+| **User Input** | Simple | File path | File path | Menu + numbers |
+| **Loops** | None | For loops | Built-in | While loops |
+| **File I/O** | None | Read/Write | Read | Write |
+| **Error Handling** | Basic | Good | Excellent | Excellent |
+| **Interactivity** | Low | Medium | Low | High |
 
-### Evolution from Project 03
-- **Menu-driven interface** vs single-run analysis
-- **Global state management** (history list)
-- **Interactive loop** with multiple options
-- **More complex user interaction** (multiple inputs per action)
-- **Datetime usage** for timestamps
-- **Confirmation prompts** (before clearing, exiting)
+### Evolution from Previous Projects
+- **More interactive** - Menu-driven interface vs. single-run
+- **State management** - Maintaining history across operations
+- **Better UX** - Confirmations, save prompts, formatted output
+- **Global variables** - First project using shared state
+- **Loop control** - `while True` and `break` statements
+
+## Useful Commands
+
+```bash
+# Run the calculator
+python calculator.py
+
+# Test individual functions (modify main to run tests)
+python calculator.py
+
+# Check if history file exists
+ls -la history.txt  # Mac/Linux
+dir history.txt     # Windows
+```
 
 ## Dependencies
 
 **Standard Library Only:**
-- `datetime` - Timestamps
-- Built-in functions - Input/output, file operations
+- `datetime` - Timestamps for calculations
+- Built-in functions - `input()`, `float()`, file operations
 
-**No `pip install` required!** ✨
-
-## Files
-
-```
-project-04-calculator/
-├── calculator.py          # Main program
-├── README.md             # This file
-├── history.txt           # Generated by save function
-└── .gitignore            # Ignore history files
-```
+**No external packages required!** ✨
 
 ## Reflection
 
 ### What I'm Proud Of
-- **Clean menu system** - Easy to navigate and understand
-- **Comprehensive error handling** - Validates all user input
-- **Timestamps in history** - Professional touch
-- **Confirmation prompts** - Prevents accidental data loss
-- **Save-before-exit feature** - Good UX practice
-- **No external dependencies** - Uses only Python standard library
+- Clean menu-driven interface that's easy to use
+- Comprehensive input validation - program never crashes
+- Thoughtful user experience (save prompts, confirmations)
+- Well-organized code with single-responsibility functions
+- Proper error messages that guide the user
 
 ### What I Struggled With
-- **Global variable management** - Forgot `global` keyword initially
-- **Input validation loop** - Took a few tries to get right
-- **File formatting** - Making saved reports look professional
-- **Menu flow** - Deciding when to prompt for input
+- Understanding when to use `global` keyword
+- Deciding between storing strings vs. dictionaries in history
+- Formatting the menu to look professional
+- Remembering to validate all user inputs
+- Testing all edge cases thoroughly
 
 ### How I Improved from Project 03
-- **Interactive vs single-run** - Added menu loop for continuous use
-- **State management** - Learned to work with global variables
-- **Better UX** - Confirmation prompts, save-before-exit
-- **More complex control flow** - While loops, multiple user paths
-- **Cleaner code organization** - More small, focused functions
+- **More user interaction** - Menu vs. single analysis
+- **State management** - History persists across operations
+- **Better code organization** - More helper functions
+- **Improved UX** - Confirmations and prompts
+- **Loop mastery** - While loops for continuous operation
 
-### Key Lessons
+### Key Lessons Learned
+1. **User experience matters** - Small touches like save prompts make a difference
+2. **Validation everywhere** - Always validate user input
+3. **Global variables** - Useful for shared state but use sparingly
+4. **Menu design** - Clear options and feedback improve usability
+5. **Error messages** - Be specific about what went wrong
+6. **Testing is crucial** - Edge cases reveal bugs
 
-1. **User input needs LOTS of validation** - Can never be too careful
-2. **Global variables are convenient but need discipline** - Easy to misuse
-3. **Timestamps make history valuable** - Users appreciate detailed records
-4. **Confirmation prompts prevent regret** - Before destructive actions
-5. **Menu systems need clear exit paths** - Easy to trap users in loops
-6. **`.strip()` is your friend** - Handles user mistakes gracefully
-7. **While True + break = menu loop** - Simple but effective pattern
+## Links
 
-## Usage Tips
-
-### Best Practices
-- **Clear history regularly** - Keeps display manageable
-- **Save before clearing** - Preserve important calculations
-- **Use descriptive filenames** - "monthly_budget.txt" vs "history.txt"
-- **Check history before exiting** - Don't lose work
-
-### Common Mistakes to Avoid
-- Entering "plus" instead of "+"
-- Forgetting to save before clearing
-- Using comma as decimal separator (use period)
+- **Code**: [`calculator.py`](./calculator.py)
+- **Sample History**: [`history.txt`](./history.txt)
 
 ## Resources Used
 
-- [Python datetime documentation](https://docs.python.org/3/library/datetime.html)
-- [Python file I/O guide](https://docs.python.org/3/tutorial/inputoutput.html)
-- [Global vs local variables](https://realpython.com/python-scope-legb-rule/)
-- Stack Overflow for input validation patterns
+- [Python datetime module](https://docs.python.org/3/library/datetime.html)
+- [Python lists documentation](https://docs.python.org/3/tutorial/datastructures.html)
+- [File I/O guide](https://docs.python.org/3/tutorial/inputoutput.html#reading-and-writing-files)
+- Stack Overflow for global variable questions
 
 ---
 
@@ -608,4 +495,4 @@ Found a bug or have a suggestion? Open an issue in the [main repository](https:/
 
 ---
 
-*Learning Python one project at a time* 🚀
+*Building Python skills one project at a time* 🚀
