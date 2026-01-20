@@ -470,7 +470,6 @@ dir history.txt     # Windows
 ## Links
 
 - **Code**: [`calculator.py`](./calculator.py)
-- **Sample History**: [`history.txt`](./history.txt)
 
 ## Resources Used
 
