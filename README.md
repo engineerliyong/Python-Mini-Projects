@@ -1,0 +1,246 @@
+# Python Mini Projects 🐍
+
+A collection of 30 mini projects to master Python fundamentals, data science, and machine learning concepts. Part of my journey to becoming an Edge AI Engineer.
+
+## 📚 About This Repository
+
+This repository contains hands-on Python projects completed as part of my learning roadmap toward Edge AI and embedded machine learning. Each project focuses on specific skills and builds progressively from fundamentals to advanced ML concepts.
+
+**Learning Goals:**
+- Master Python programming fundamentals
+- Build proficiency in NumPy, Pandas, and data manipulation
+- Develop signal processing and feature engineering skills
+- Prepare for machine learning and embedded systems work
+
+## 🎯 Project Structure
+
+Projects are organized into three levels of increasing complexity:
+
+### Level 1: Python Fundamentals (Projects 1-10)
+Basic Python concepts, file I/O, and data structures
+- **Project 01**: [Temperature Converter](./project-01-temp-converter/) - Functions, input validation
+- **Project 02**: [File Word Counter](./project-02-word-counter/) - File I/O, dictionaries
+- **Project 03**: [CSV Data Analyzer](./project-03-csv-analyzer/) - Pandas, statistics
+- **Project 04**: [Simple Calculator](./project-04-calculator/) - Control flow, history
+- **Project 05**: [Password Generator](./project-05-password-gen/) - String manipulation, regex
+- **Project 06**: [JSON Contact Manager](./project-06-contact-manager/) - JSON, CRUD operations
+- **Project 07**: [Directory Organizer](./project-07-dir-organizer/) - os module, file management
+- **Project 08**: [Data Plotter](./project-08-data-plotter/) - Matplotlib, visualization
+- **Project 09**: [Web Scraper](./project-09-web-scraper/) - BeautifulSoup, requests
+- **Project 10**: [Log File Analyzer](./project-10-log-analyzer/) - Regex, data parsing
+
+### Level 2: Data Science & NumPy (Projects 11-20)
+Data analysis, statistics, and signal processing preparation
+- **Project 11**: [NumPy Array Exercises](./project-11-numpy-exercises/) - Array operations
+- **Project 12**: [Statistical Analysis Tool](./project-12-stats-tool/) - SciPy, distributions
+- **Project 13**: [Time Series Generator](./project-13-timeseries-gen/) - Synthetic data
+- **Project 14**: [Image Processing](./project-14-image-processing/) - NumPy, PIL/OpenCV
+- **Project 15**: [Monte Carlo Simulation](./project-15-monte-carlo/) - Random sampling
+- **Project 16**: [Linear Algebra Visualizer](./project-16-linalg-viz/) - Matrix transformations
+- **Project 17**: [Correlation Explorer](./project-17-correlation/) - Heatmaps, relationships
+- **Project 18**: [Moving Average Calculator](./project-18-moving-avg/) - Time series smoothing
+- **Project 19**: [Outlier Detection Suite](./project-19-outlier-detection/) - Multiple methods
+- **Project 20**: [Interpolation Tool](./project-20-interpolation/) - Missing data handling
+
+### Level 3: ML & Hardware Integration (Projects 21-30)
+Machine learning, real-time systems, and production pipelines
+- **Project 21**: [Feature Extraction Pipeline](./project-21-feature-extraction/) - Signal processing
+- **Project 22**: [Binary Classifier from Scratch](./project-22-logistic-regression/) - ML fundamentals
+- **Project 23**: [K-Means Visualizer](./project-23-kmeans/) - Clustering, animation
+- **Project 24**: [Decision Tree Visualizer](./project-24-decision-tree/) - Model interpretation
+- **Project 25**: [Cross-Validation Framework](./project-25-cv-framework/) - ML experiments
+- **Project 26**: [Real-Time Data Streamer](./project-26-realtime-stream/) - Threading, queues
+- **Project 27**: [Model Comparison Dashboard](./project-27-ml-dashboard/) - Streamlit, visualization
+- **Project 28**: [Time Series Forecaster](./project-28-forecasting/) - ARIMA, Prophet
+- **Project 29**: [Model Serialization](./project-29-model-versioning/) - MLOps basics
+- **Project 30**: [End-to-End ML Pipeline](./project-30-ml-pipeline/) - Production system
+
+## 📊 Progress Tracker
+
+**Current Status:** 🟢 In Progress
+
+| Level | Completed | Total | Progress |
+|-------|-----------|-------|----------|
+| Level 1 | 1 | 10 | ▓░░░░░░░░░ 10% |
+| Level 2 | 0 | 10 | ░░░░░░░░░░ 0% |
+| Level 3 | 0 | 10 | ░░░░░░░░░░ 0% |
+
+**Last Updated:** January 8, 2026
+
+## 🛠️ Technologies & Libraries
+
+**Core:**
+- Python 3.9+
+- NumPy
+- Pandas
+- Matplotlib
+
+**Data Science:**
+- SciPy
+- Scikit-learn
+- Seaborn
+
+**ML & Advanced:**
+- TensorFlow
+- Streamlit
+- BeautifulSoup
+- Requests
+
+## 🚀 Getting Started
+
+### Prerequisites
+```bash
+# Python 3.9 or higher
+python --version
+
+# Install Anaconda (recommended) or pip
+```
+
+### Installation
+```bash
+# Clone this repository
+git clone https://github.com/engineerliyong/python-mini-projects.git
+cd python-mini-projects
+
+# Create virtual environment
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+
+# Install dependencies (when available)
+pip install -r requirements.txt
+```
+
+### Running a Project
+```bash
+# Navigate to specific project
+cd project-01-temp-converter
+
+# Run the script
+python temp_converter.py
+
+# Or run the notebook
+jupyter notebook
+```
+
+## 📁 Repository Structure
+
+```
+python-mini-projects/
+│
+├── README.md                          # This file
+├── requirements.txt                   # Python dependencies
+├── .gitignore                        # Git ignore file
+│
+├── project-01-temp-converter/
+│   ├── README.md                     # Project documentation
+│   ├── temp_converter.py             # Main script
+│   └── tests/                        # Unit tests (if applicable)
+│
+├── project-02-word-counter/
+│   ├── README.md
+│   ├── word_counter.py
+│   ├── sample_data/
+│   └── output/
+│
+└── ... (more projects)
+```
+
+## 📖 Learning Journey
+
+**Why These Projects?**
+
+I'm building these projects as preparation for Edge AI and embedded machine learning work. The progression is intentional:
+1. **Master Python** - Can't build ML without solid Python skills
+2. **Understand Data** - Signal processing and feature engineering are critical
+3. **Build ML Systems** - End-to-end production pipelines
+
+**End Goal:** Deploy machine learning models on embedded hardware (ESP32, STM32) for predictive maintenance and IoT applications.
+
+## 🎓 What I'm Learning
+
+### Skills Acquired
+- ✅ Python fundamentals (functions, classes, modules)
+- ✅ Error handling and input validation
+- ⏳ NumPy array operations
+- ⏳ Data visualization with Matplotlib
+- ⏳ Statistical analysis
+- ⏳ Machine learning fundamentals
+- 📅 Real-time data processing
+- 📅 Production ML pipelines
+
+### Key Takeaways
+*Updated after each project completion*
+
+**Project 01 - Temperature Converter:**
+- Learned proper input validation with try-except
+- Understanding of control flow and error handling
+- Importance of edge case testing
+
+## 🤝 Contributing
+
+This is a personal learning repository, but suggestions and feedback are welcome!
+
+**If you find issues:**
+1. Open an issue describing the problem
+2. Include which project and what error
+3. Suggest improvements if you have ideas
+
+## 📝 Notes & Reflections
+
+*Personal notes on challenges and breakthroughs*
+
+### Week 1
+- Started with Project 01: Temperature Converter
+- Challenge: Understanding when to use try-except vs if-else
+- Breakthrough: Realized validation should happen before conversion, not after
+
+### Week 2
+- Working on file I/O projects
+- *Updates coming...*
+
+## 📚 Resources
+
+**Helpful References:**
+- [Python Official Docs](https://docs.python.org/3/)
+- [NumPy Documentation](https://numpy.org/doc/)
+- [Real Python Tutorials](https://realpython.com/)
+- [Stack Overflow](https://stackoverflow.com/questions/tagged/python)
+
+
+## 📫 Contact
+
+**About Me:**
+Learning AI/ML for hardware engineering and Edge AI applications. Currently working through a structured 12-month roadmap to deploy ML models on embedded systems.
+
+**Connect:**
+- GitHub: [@engineerliyong](https://github.com/engineerliyong)
+- LinkedIn: [Liza Bambu](https://linkedin.com/in/liza-bambu)
+- Email: lizabambu544@gmail.com
+
+## 📅 Timeline
+
+- **Start Date:** January 8, 2026
+- **Target Completion:** February 7, 2026 (30 days)
+- **Daily Commitment:** 2-3 hours
+
+## ⭐ Acknowledgments
+
+- Thanks to the Python community for excellent documentation
+- Inspired by the Edge AI learning roadmap
+- Special thanks to everyone who provided feedback
+
+## 📄 License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+---
+
+**Current Focus:** Level 1 - Python Fundamentals  
+**Next Milestone:** Complete first 10 projects by January 18, 2026
+
+*"Code every day. Push every day. Learn every day."*
+
+---
+
+
+

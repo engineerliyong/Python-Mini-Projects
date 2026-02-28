@@ -1,0 +1,12 @@
+# Add to .gitignore
+venv/
+env/
+ENV/
+.venv/
+
+# Also add:
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+*.log
+.DS_Store
