@@ -1,7 +1,7 @@
 """
 Contact Manager
 Author: Liza Bambu
-Date: January 2026
+Date: April 2026
 
 Manage contacts with JSON storage - Add, view, search, update, and delete.
 """
