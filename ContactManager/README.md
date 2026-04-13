@@ -618,7 +618,7 @@ rm contacts.json
 
 **Part of:** [30 Python Mini Projects](https://github.com/engineerliyong/python-mini-projects)  
 **Author:** [Liza Bambu](https://github.com/engineerliyong)  
-**Date:** January 2026  
+**Date:** April 2026  
 **Status:** ✅ Complete  
 **Next:** Project 07 - Directory File Organizer
 
